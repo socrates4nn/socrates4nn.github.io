@@ -81,26 +81,6 @@ role-tables:
     {% endif %}
 </section>
 
-<section>
-    <h2>Research</h2>
-    <div class="card-columns">
-        {% comment %}
-        Sort the projects by date, putting those without dates last
-        {% endcomment %}
-        {% assign projects_by_title = site.projects | sort: 'title', 'first' %}
-        {% for p in projects_by_title %}
-            {% if p.active %}
-                {% include project-card-2.html project=p %}
-            {% endif %}
-        {% endfor %}
-    </div>
-	
-    <p>
-        <span class="fa fa-fw fa-history"></span>
-        <a href="{{ site.base }}/research.html#past">Older research projects&hellip;</a>
-    </p>
-</section>
-
 <div id="people">
     <h2>People</h2>
     {% for role-table in page.role-tables %}
