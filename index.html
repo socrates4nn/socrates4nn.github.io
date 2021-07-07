@@ -1,469 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>SOCRATES</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+---
+layout: default
+title: Home
+notitle: true
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
-    
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+# groups of columns of {roles: list, width: num, image: bool}
+role-tables:
+- - roles: [faculty, postdoc]
+    width: 4
+    image: true
+  - roles: [grad]
+    width: 4
+    image: true
+  - roles: [alum]
+    width: 4
+    image: false
+#- - roles: [collab, ugrad, ugrad-alum]
+#    width: 5
+#    image: false
+#  - roles: [alum]
+#    width: 7
+#    image: false
 
-    <link rel="stylesheet" href="css/aos.css">
+---
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+<div class="container">
+<div class="row">
+<div class="col-lg-8">
+<div class="jumbotron">
+    <p>
+		We are the <strong>System Analysis and Verification (SAV) Group</strong> at Singapore Management University!
+	</p>
+	<p>
+		Our group develops systematic tools, theories, and methodologies for ensuring the correctness, reliability, and efficiency of software and systems, focusing on automated techniques such as model checking, machine learning, and program analysis.
+	</p>
+        <!-- The <b>System Analysis and Verification (SAV) Group</b> at <b>Singapore Management University</b> develops systematic tools, theories, and methodologies for ensuring the correctness, reliability, and efficiency of software and systems, focusing on automated techniques such as model checking, machine learning, and program analysis. We target several different kinds of advanced software/systems, including critical infrastructure, autonomous vehicles, and smart contracts. -->
+    </p>
+</div>
+</div>
+<div class="col-lg-4 text-center">
+	<!-- <img src="/img/group.jpg" alt="Group photo from 2017" class="rounded w-100" style="max-width: 500px;"> -->
+	<div id="carouselExampleControls" class="carousel slide" style="border-radius: 5px; overflow: hidden;" data-ride="carousel">
+	  <div class="carousel-inner">
+	    <div class="carousel-item active">
+	      <img class="d-block w-100 rounded" src="/img/smu.jpg" alt="Photo of SMU">
+	    </div>
+	    <div class="carousel-item">
+	      <img class="d-block w-100 rounded" src="/img/smu2.jpg" alt="Photo of SMU">
+	    </div>
+	    <div class="carousel-item">
+	      <img class="d-block w-100 rounded" src="/img/group.jpg" alt="Old group photo... to be updated post-COVID!">
+	    </div>
+	  </div>
+	  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+</div>
+</div>
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+<br />
 
-    
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
+<section>
+    <h2>News</h2>
+    <ul class="news list-unstyled">
+        {% for post in site.posts limit: site.front_page_news %}
+            {% include news-item.html item=post %}
+        {% endfor %}
+    </ul>
+    {% assign numposts = site.posts | size %}
+    {% if numposts >= 1 %}
+        <p>
+            <span class="fa fa-fw fa-history"></span>
+            <a href="{{ site.base }}/news.html">Older posts&hellip;</a>
+        </p>
+    {% endif %}
+</section>
 
-    <div class="KW_progressContainer">
-      <div class="KW_progressBar">
-
-      </div>
+<section>
+    <h2>Research</h2>
+    <div class="card-columns">
+        {% comment %}
+        Sort the projects by date, putting those without dates last
+        {% endcomment %}
+        {% assign projects_by_title = site.projects | sort: 'title', 'first' %}
+        {% for p in projects_by_title %}
+            {% if p.active %}
+                {% include project-card-2.html project=p %}
+            {% endif %}
+        {% endfor %}
     </div>
-    <div class="page">
-    <nav id="colorlib-main-nav" role="navigation">
-      <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle active"><i></i></a>
-      <div class="js-fullheight colorlib-table">
-        <!-- <div class="img" style="background-image: url(images/author-2.jpg);"></div> -->
-        <div class="colorlib-table-cell js-fullheight">
-          <div class="row no-gutters">
-            <div class="col-md-12 text-center">
-              <h1 class="mb-4"><a href="index.html" class="logo">SOCRATES</a></h1>
-              <ul>
-                <li class="active"><a href="index.html"><span><small>01</small>Home</span></a></li>
-                <li><a href="about.html"><span><small>02</small>About</span></a></li>
-                <li><a href="team.html"><span><small>03</small>Team</span></a></li>
-                <li><a href="benchmark.html"><span><small>04</small>Benchmark</span></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>  
-    
-    <div id="colorlib-page">
-      <header>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="colorlib-navbar-brand">
-                <a class="colorlib-logo" href="index.html"><span class="logo-img" style="background-image: url(images/logo1.JPG);"></span>SOCRATES</a>
-              </div>
-              <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
-            </div>
-          </div>
-        </div>
-      </header>
-    
-      <section class="home-slider owl-carousel js-fullheight">
-        <div class="slider-item js-fullheight">
-          <div class="overlay"></div>
-          <div class="container">
-            <div class="row slider-text align-items-center text-center justify-content-center" data-scrollax-parent="true">
-              <div class="col-md-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                <p><a href="#" class="scroll">SOCRATES</a></p>
-                <h1 class="mb-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Neural Network Verification</h1>
-              </div>
-            </div>
-          </div>
-        </div>
+	
+    <p>
+        <span class="fa fa-fw fa-history"></span>
+        <a href="{{ site.base }}/research.html#past">Older research projects&hellip;</a>
+    </p>
+</section>
 
-        <div class="slider-item js-fullheight">
-          <div class="overlay"></div>
-          <div class="container">
-            <div class="row slider-text align-items-center text-center justify-content-center" data-scrollax-parent="true">
-              <div class="col-md-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                <p><a href="#" class="scroll">Unified Framework For developing verification techniques</a></p>
-                <h1 class="mb-3" data-scrollax="properties: {translateY: '30%', opacity: 1.6}">On Neural Network</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- END slider -->
-
-      <section class="ftco-section about-section">
-        <div class="container">
-          <div class="row d-flex" data-scrollax-parent="true">
-            <div class="col-md-4 author-img" style="background-image: url(images/network.png);" data-scrollax=" properties: { translateY: '-70%'}"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-6 wrap ftco-animate">
-              <div class="about-desc">
-                <h1 class="bold-text">About</h1>
-                <div class="p-5">
-                  <h2 class="mb-5">SOCRATES System</h2>
-                  <p>SOCRATES is a unified platform for neural network verification developed by Sun Jun's team at SMU.
-                    Unlike most existing neural network verification approaches which are scattered 
-                    (i.e., each approach tackles some restricted classes of neural networks against certain particular properties), 
-                    incomparable (i.e., each approach has its own assumptions and input format) and thus hard to apply, reuse or extend, 
-                    SOCRATES aims at providing a unified platform for neural network verification. Specifically, it supports a standardized 
-                    format for a variety of neural network models, an asseration language for property specification as well as two novel 
-                    algorithms for verifying or falsifying neural network models.</p>
-                  <a href="https://arxiv.org/abs/2007.11206">arXiv Publication </a> |
-                  <a href="https://figshare.com/s/f2c4959b59cf32da4891"> Benchmark for SOCRATES</a>
-                  <ul class="ftco-footer-social list-unstyled mt-4">
-                    <li><a href="https://github.com/longph1989/Socrates"><span class="icon-github"></span></a></li>
-                    <!-- <li><a href="#"><span class="icon-instagram"></span></a></li> -->
-                  </ul>
-                  <h5>Contact us here!</h5>
-                  <p>Email: <a href="mailto:junsun@smu.edu.sg">junsun@smu.edu.sg</a></p>
+<div id="people">
+    <h2>People</h2>
+    {% for role-table in page.role-tables %}
+        <section class="people row justify-content-between">
+            {% for role-column in role-table %}
+                <div class="col-md-{{ role-column.width }}">
+                    {% for role in role-column.roles %}
+                        {% include role-people.html role=role image=role-column.image %}
+                    {% endfor %}
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="ftco-section">
-        <div class="container">
-          <div class="row justify-content-center mb-5 pb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-              <span>Who is it for?</span>
-              <h2>Users</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <div class="icon mb-3"><span class="icon-user"></span></div>
-                <div class="media-body">
-                  <h3 class="heading">Ordinary Users</h3>
-                  <ul style="text-align: left;">
-                    <li>Designed to assist in verifying a particular neural network model</li>
-                    <li>Configurable parameters for Verification Engine to suit users' needs</li>
-                  </ul>
-                </div>
-              </div>      
-            </div>
-            <div class="col-md-6 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <div class="icon mb-3"><span class="icon-area-chart"></span></div>
-                <div class="media-body">
-                  <h3 class="heading">Researchers</h3>
-                  <ul style="text-align: left;">
-                    <li>Designed to enable synergistic effort on developing state-of-the-art verification techniques for neural networks</li>
-                    <li>Features a publisher-subscriber architecture
-                      which facilitates developing verification techniques 
-                      for different neural network models and properties independently</li>
-                  </ul>
-                </div>
-              </div>    
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="ftco-section">
-        <div class="container">
-          <div class="row justify-content-center mb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-              <span>Introducing</span>
-              <h2>SOCRATES Team</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <div style="margin: 0 auto 10px auto;height:100px;width:100px">
-                  <img class="d-block" src="images/junsun.jpg" style="max-width:100%;max-height:100%;"></img>
-                </div>
-                  <div class="media-body">
-                    <h3 class="heading">Sun Jun</h3>
-                    <p>
-                      Full-time Faculty, School of Computing and Information Systems
-                     </p>
-                  </div>
-              </div>      
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <div style="margin: 0 auto 10px auto;height:100px;width:100px">
-                  <img class="d-block" src="images/Hong-Long-Pham.jpg" style="max-width:100%;max-height:100%;"></img>
-                </div>  
-                <div class="media-body">
-                  <h3 class="heading">Pham Hong Long</h3>
-                  <p>
-                    Research Scientist at Singapore Management University
-                  </p>
-                </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="ftco-section">
-        <div class="container">
-          <div class="row justify-content-center mb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-              <span>Benchmark</span>
-              <h2>Downloads</h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <a href='https://figshare.com/s/1b58b781758715283ae9'>
-                  <div class="icon mb-3"><span class="icon-microchip"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">Eran</h3>
-                  </div>
-                </a>
-              </div>      
-            </div>
-            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <a href='https://figshare.com/s/4155f19b6b038ced430b'>
-                  <div class="icon mb-3"><span class="icon-balance-scale"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">Fairness</h3>
-                  </div>
-                </a>
-              </div>    
-            </div>
-            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <a href='https://figshare.com/s/f9da0b1d8ccfb4827234'>
-                  <div class="icon mb-3"><span class="icon-area-chart"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">MNIST Challenge</h3>
-                  </div>
-                </a>
-              </div>    
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <a href='https://figshare.com/s/427a3c3f89ba7252b0fc'>
-                  <div class="icon mb-3"><span class="icon-user"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">Motivation</h3>
-                  </div>
-                </a>
-              </div>      
-            </div>
-            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <a href='https://figshare.com/s/f9371d84df7f8dd049a2'>
-                  <div class="icon mb-3"><span class="icon-hourglass-o"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">Reluplex</h3>
-                  </div>
-                </a>
-              </div>    
-            </div>
-            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-              <div class="media block-6 services p-3 py-4 d-block text-center">
-                <a href='https://figshare.com/s/e12d3e51dfe63c0ee586'>
-                  <div class="icon mb-3"><span class="icon-object-group"></span></div>
-                  <div class="media-body">
-                    <h3 class="heading">RNN</h3>
-                  </div>
-                </a>
-              </div>    
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--
-      <section class="ftco-section">
-        <div class="container">
-          <div class="row justify-content-center mb-5 pb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-              <span>Portfolio</span>
-              <h2>Checkout a few of my works</h2>
-            </div>
-          </div>
-          <div class="row no-gutters">
-          <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="portfolio-single.html" class="image d-flex justify-content-center align-items-center" style="background-image: url('images/work-1.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
-              <div class="icon d-flex text-center justify-content-center align-items-center">
-                <span class="icon-search"></span>
-              </div>
-            </a>
-            <div class="text">
-              <h4 class="subheading">Illustration</h4>
-              <h2 class="heading"><a href="portfolio-single.html">Even the all-powerful Pointing has no control</a></h2>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
-              <p><a href="#">View Project</a></p>
-            </div>
-          </div>
-          <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="portfolio-single.html" class="image order-2 d-flex justify-content-center align-items-center" style="background-image: url('images/work-2.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
-              <div class="icon d-flex text-center justify-content-center align-items-center">
-                <span class="icon-search"></span>
-              </div>
-            </a>
-            <div class="text order-1">
-              <h4 class="subheading">Application</h4>
-              <h2 class="heading"><a href="portfoli-singleo.html">Even the all-powerful Pointing has no control</a></h2>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
-              <p><a href="#">View Project</a></p>
-            </div>
-          </div>
-          <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="portfolio-single.html" class="image d-flex justify-content-center align-items-center" style="background-image: url('images/work-3.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
-              <div class="icon d-flex text-center justify-content-center align-items-center">
-                <span class="icon-search"></span>
-              </div>
-            </a>
-            <div class="text">
-              <h4 class="subheading">Web Design</h4>
-              <h2 class="heading"><a href="portfolio-single.html">Even the all-powerful Pointing has no control</a></h2>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
-              <p><a href="#">View Project</a></p>
-            </div>
-          </div>
-          <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="portfolio-single.html" class="image order-2 d-flex justify-content-center align-items-center" style="background-image: url('images/work-4.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
-              <div class="icon d-flex text-center justify-content-center align-items-center">
-                <span class="icon-search"></span>
-              </div>
-            </a>
-            <div class="text order-1">
-              <h4 class="subheading">Application</h4>
-              <h2 class="heading"><a href="portfoli-singleo.html">Even the all-powerful Pointing has no control</a></h2>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
-              <p><a href="#">View Project</a></p>
-            </div>
-          </div>
-          <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="portfolio-single.html" class="image d-flex justify-content-center align-items-center" style="background-image: url('images/work-5.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
-              <div class="icon d-flex text-center justify-content-center align-items-center">
-                <span class="icon-search"></span>
-              </div>
-            </a>
-            <div class="text">
-              <h4 class="subheading">Animation</h4>
-              <h2 class="heading"><a href="portfoli-singleo.html">Even the all-powerful Pointing has no control</a></h2>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
-              <p><a href="#">View Project</a></p>
-            </div>
-          </div>
-          <div class="block-3 d-md-flex ftco-animate" data-scrollax-parent="true">
-            <a href="portfolio-single.html" class="image order-2 d-flex justify-content-center align-items-center" style="background-image: url('images/work-6.jpg'); " data-scrollax=" properties: { translateY: '-30%'}">
-              <div class="icon d-flex text-center justify-content-center align-items-center">
-                <span class="icon-search"></span>
-              </div>
-            </a>
-            <div class="text order-1">
-              <h4 class="subheading">Branding</h4>
-              <h2 class="heading"><a href="portfoli-singleo.html">Even the all-powerful Pointing has no control</a></h2>
-              <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text.</p>
-              <p><a href="#">View Project</a></p>
-            </div>
-          </div>
-        </div>
-        </div>
-      </section>
-
-      <section class="ftco-section ftco-counter" id="section-counter">
-        <div class="container">
-          <div class="row justify-content-center mb-5 pb-5">
-            <div class="col-md-7 text-center heading-section ftco-animate">
-              <span>Portfolio</span>
-              <h2>I love to share my achievements</h2>
-            </div>
-          </div>
-          <div class="row d-flex justify-content-start">
-            <div class="col-md-5 col-sm-5 counter-wrap ftco-animate">
-              <div class="block-18">
-                <div class="text">
-                  <span class="ftco-label">Clients</span>
-                  <strong class="number" data-number="420">0</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-5 col-sm-5 counter-wrap ftco-animate">
-              <div class="block-18">
-                <div class="text">
-                  <span class="ftco-label">Project done</span>
-                  <strong class="number" data-number="890">0</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row d-flex justify-content-end">
-            <div class="col-md-5 counter-wrap ftco-animate">
-              <div class="block-18">
-                <div class="text">
-                  <span class="ftco-label">Cups of coffee</span>
-                  <strong class="number" data-number="1000">0</strong>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
-      
-      <!-- <footer class="ftco-footer ftco-bg-dark ftco-section">
-        <div class="container">
-          <div class="row mb-5 justify-content-center">
-            <div class="col-md-5 text-center">
-              <div class="ftco-footer-widget mb-5">
-                <ul class="ftco-footer-social list-unstyled">
-                  <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-                  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-                  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-                </ul>
-              </div>
-              <div class="ftco-footer-widget">
-                <h2 class="mb-3">Contact Us</h2>
-                <p class="h3 email"><a href="#">info@email.com</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12 text-center">
-
- 
-            </div>
-          </div>
-        </div>
-      </footer> -->
-
-      <!-- loader -->
-      <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-      </div>
-
-    </div>
-
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/scrollax.min.js"></script>
-    <script src="js/bootstrap-datepicker.js"></script>
-    <script src="js/jquery.timepicker.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="js/google-map.js"></script>
-    <script src="js/main.js"></script>
-    
-  </body>
-</html>
+            {% endfor %}
+        </section>
+    {% endfor %}
+</div>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{ site.name }}: {{ page.title }}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+              integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+              crossorigin="anonymous">
+        <link rel="stylesheet"
+              href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ site.base }}/css/group.css">
+    </head>
+    <body>
+        <div class="container">
+            <!-- This is a bit nasty, but it basically says be a column first, and on larger screens be a spaced out row -->
+            <div class="header d-flex
+                        flex-column
+                        flex-md-row justify-content-md-between">
+                <a href="{{ site.base }}/" class="">
+                    <!--<img src="{{ site.base }}/img/logo.png"
+                         srcset="{{ site.base }}/img/logo@2x.png 2x"
+                         alt="Awesome" id="logo">
+						<img src="{{ site.base }}/img/sav-logo_small.png 2x" alt="SAV Group Logo" id="logo"> -->
+					<picture>
+					  <source media="(min-width:768px)" srcset="{{ site.base }}/img/sav-logo_small.png">
+					  <img src="{{ site.base }}/img/sav-logo-3.jpg" alt="SAV Group Logo" id="logo">
+					</picture>
+                </a>
+                <ul class="nav nav-pills justify-content-center">
+
+                    {% assign shorturl = page.url | replace:'.html','' | replace:'index','' %}
+                    {% for item in site.navigation %}
+
+                        {% assign itemshorturl = item.link | replace:'.html','' %}
+
+                        {% assign maybe-active = '' %}
+                        {% if item.title == 'Research' and page.layout == 'project' %}
+                            {% assign maybe-active = 'active' %}
+                        {% endif %}
+                        {% if itemshorturl == shorturl or is-research %}
+                            {% assign maybe-active = 'active' %}
+                        {% endif %}
+
+                        <li class="nav-item">
+                            <a class="nav-link {{ maybe-active }}"
+                               href="{{ site.base }}{{ item.link }}">
+                                {{ item.title }}
+                            </a>
+                        </li>
+
+                    {% endfor %}
+					
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="https://twitter.com/sav_smu" target="_new">
+	   					<picture>
+	   					  <source media="(min-width:768px)" srcset="{{ site.base }}/img/twitter_small.png">
+	   					  <img src="{{ site.base }}/img/twitter.png" style="height:20px;" alt="SAV on Twitter" />
+	   					</picture>
+                            <!-- <img src="{{ site.base }}/img/twitter_small.png" alt="SAV on Twitter" /> -->
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            {% if page.image %}
+                <img src="{{ page.image }}"
+                     alt="{{ page.title }}"
+                     style="max-width: 400px"
+                     class="img-fluid mx-auto d-block mb-4"/>
+            {% endif %}
+
+            {% if page.notitle != true %}
+                <h1>{{ page.title }}</h1>
+            {% endif %}
+
+            {{ content }}
+
+            <div class="footer">
+                <p>
+                    <a href="https://scis.smu.edu.sg/">School of Computing and Information Systems</a>
+                    at the
+                    <a href="https://www.smu.edu.sg/">Singapore Management University</a>. Jekyll template by <a href="https://github.com/uwsampa/research-group-web">UW-Sampa</a>.
+                </p>
+            </div>
+
+        </div> <!-- /container -->
+
+        <!-- Support retina images. -->
+        <script type="text/javascript"
+                src="{{ site.base }}/js/srcset-polyfill.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

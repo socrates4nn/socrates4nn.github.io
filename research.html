@@ -1,0 +1,40 @@
+---
+layout: default
+title: Research Projects
+---
+
+<h3>Current Projects</h2>
+	
+<p>
+	We develop systematic tools, theories, and methodologies for ensuring the correctness, reliability, and efficiency of software and systems, focusing on automated techniques such as model checking, machine learning, and program analysis. Our work targets several different kinds of advanced software/systems, including critical infrastructure, autonomous vehicles, and smart contracts.
+</p>
+
+<div class="card-columns">
+    {% comment %}
+    Sort the projects by title
+    {% endcomment %}
+    {% assign projects_by_title = site.projects | sort: 'title', 'first' %}
+    {% for p in projects_by_title %}
+		{% if p.active %}
+        	{% include project-card.html project=p %}
+		{% endif %}
+    {% endfor %}
+</div>
+
+<h3><a name="past"></a>Past Projects</h2>
+	
+<p>
+	The following are some past research projects that we have completed.
+</p>
+
+<div class="card-columns">
+    {% comment %}
+    Sort the projects by title
+    {% endcomment %}
+    {% assign projects_by_title = site.projects | sort: 'title', 'first' %}
+    {% for p in projects_by_title %}
+		{% if p.active == false %}
+        	{% include project-card.html project=p %}
+		{% endif %}
+    {% endfor %}
+</div>

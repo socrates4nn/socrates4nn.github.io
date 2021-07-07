@@ -1,0 +1,21 @@
+
+prof-sunjun:
+    display_name: "SUN Jun"
+    webpage: "http://sunjun.site/"
+    github: sunjunhqq
+    role: faculty
+    image: /img/people/sunjun.jpg
+    bio: "Associate Professor"
+
+postdoc-long:
+    display_name: "PHAM Hong Long"
+    bio: "Research Fellow"
+    role: postdoc
+    image: /img/people/long.jpg
+
+postdoc-jiaying:
+    display_name: "LI Jiaying"
+    webpage: "https://scholar.google.com/citations?user=nP1iwxMAAAAJ&hl=en"
+    bio: "Research Fellow"
+    role: alum
+    image: /img/people/jiayingli.jpg
