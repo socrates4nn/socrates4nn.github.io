@@ -13,9 +13,3 @@ postdoc-long:
     role: postdoc
     image: /img/people/long.jpg
 
-postdoc-jiaying:
-    display_name: "LI Jiaying"
-    webpage: "https://scholar.google.com/citations?user=nP1iwxMAAAAJ&hl=en"
-    bio: "Research Fellow"
-    role: alum
-    image: /img/people/jiayingli.jpg
