@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Software Toolkits
+title: Source code
 ---
 
-Some of the key software toolkits we have developed are described below. Please see [our research pages](/research.html) for more.
+The source code of SOCRATES can be downloaded at our <a href="https://github.com/longph1989/Socrates">GitHub page</a>.

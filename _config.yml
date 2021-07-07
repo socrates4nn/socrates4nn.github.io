@@ -48,9 +48,7 @@ navigation:
     link: /
   - title: People
     link: /#people
-  - title: Research
-    link: /research.html
-  - title: Tools
+  - title: Source
     link: /software-toolkits.html
   - title: Publications
     link: /publications.html
