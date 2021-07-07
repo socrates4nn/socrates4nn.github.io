@@ -1,5 +1,5 @@
-name: System Analysis and Verification Group
-url: http://sav-smu.github.io
+name: AI Testing & Verification
+url: https://socrates4nn.github.io/
 
 exclude: [bibble, README.md, Makefile, screenshot.png]
 
