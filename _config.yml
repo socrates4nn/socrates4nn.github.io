@@ -3,8 +3,8 @@ url: https://socrates4nn.github.io/
 
 exclude: [bibble, README.md, Makefile, screenshot.png]
 
-# colorize code snippets with the pygments module
-highlighter: pygments
+# colorize code snippets with the rouge module
+highlighter: rouge
 
 # The path structure for blog posts.
 permalink: /news/:year/:month/:day/:title.html
