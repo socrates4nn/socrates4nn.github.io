@@ -13,3 +13,8 @@ postdoc-long:
     role: postdoc
     image: /img/people/long.jpg
 
+phd-sunbing:
+    display_name: "SUN Bing"
+    bio: "PhD Student"
+    role: grad
+    image: /img/people/sunbing.jpg
