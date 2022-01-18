@@ -25,7 +25,7 @@ For adding/updating group members, go to ./_data/people.yml. Do NOT change the u
 
 For adding/updating projects, create/modify the .md files in ./_projects. Note the 'active' flag, which determines whether a project is current and appears on the front page or not.
 
-For adding news posts, create a file ./_posts/YYYY-MM-DD-title-of-news-post.md. Follow the template of existing posts. Note that our Twitter account will automatically tweet a link to any newly created news posts, so please test locally first.
+For adding news posts, create a file ./_posts/YYYY-MM-DD-title-of-news-post.md. Follow the template of existing posts.
 
 Supplementary materials (e.g. self-contained mini-sites) should be placed in ./supplementary-material. Follow the template of existing pages to automatically generate the standard layout.
 
@@ -53,9 +53,7 @@ To do this, update the BibTeX file in ./bibs/pubs.bib. Then, in the root directo
 
 This will transform the BibTeX into HTML. Simply commit/push the updated file after running the above.
 
-(Note that Chris will do this automatically whenever a new paper appears on Sun Jun's / mine DBLP page.)
-
 Help
 ----
 
-Contact cposkitt@smu.edu.sg if you face any issues, or want access to the repository / organisation account.
+Contact hlpham@smu.edu.sg if you face any issues, or want access to the repository / organisation account.
