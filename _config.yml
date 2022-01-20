@@ -1,4 +1,4 @@
-name: AI Testing & Verification
+name: Neural Network Testing, Verification & Repair
 url: https://socrates4nn.github.io/
 
 exclude: [bibble, README.md, Makefile, screenshot.png]
