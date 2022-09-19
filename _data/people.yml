@@ -13,8 +13,26 @@ postdoc-long:
     role: postdoc
     image: /img/people/long.jpg
 
+postdoc-peixin:
+    display_name: "ZHANG Peixin"
+    bio: "Research Fellow"
+    role: postdoc
+    image: /img/people/peixin.jpg
+
 phd-sunbing:
     display_name: "SUN Bing"
     bio: "PhD Student"
     role: grad
     image: /img/people/sunbing.jpg
+
+phd-sunbing:
+    display_name: "ZHANG Mengdi"
+    bio: "PhD Student"
+    role: grad
+    image: /img/people/mengdi.jpg
+
+phd-sunbing:
+    display_name: "ZHANG Ruihan"
+    bio: "PhD Student"
+    role: grad
+    image: /img/people/ruihan.jpg
