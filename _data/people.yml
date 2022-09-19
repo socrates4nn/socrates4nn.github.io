@@ -36,3 +36,15 @@ phd-ruihan:
     bio: "PhD Student"
     role: grad
     image: /img/people/ruihan.jpg
+
+phd-wei:
+    display_name: "ZHAO Wei"
+    bio: "PhD Student"
+    role: grad
+    image: /img/people/wei.jpg
+
+phd-yufei:
+    display_name: "WU Yufei"
+    bio: "PhD Student"
+    role: grad
+    image: /img/people/yufei.jpg
